@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="store" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/typopro-web/web/TypoPRO-OpenSans/TypoPRO-OpenSans.css" type="text/css"/>
+    <link rel="stylesheet" href="app.css" type="text/css"/>
+</head>
+<section ng-controller="StoreController as store" class="container">
+
+    <div ng-repeat="product in store.products">
+        <h3>
+            <product-title></product-title>
+        </h3>
+
+        <p> {{product.description}} </p>
+        <button ng-show="product.canPurchase">Add to Cart</button>
+
+        <product-panels></product-panels>
+
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="app.js"></script>
+    <script src="products.js"></script>
+</section>
+</body>
+</html>
