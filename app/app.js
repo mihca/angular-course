@@ -17,22 +17,17 @@
     // Definiere ein Modul mit Abhaengigkeiten
     var app = angular.module('store', ['store-products']);
 
-    /*
-     app.controller('StoreController', ['$http', '$log', function ($http, $log) {
-     var self = this;
-     self.products = [];
-     $log.info("Servus");
-     $http.get('products.json').then(function (data) {
-     self.products = data;
-     }, function (data) {
-     });
-     this.products = gems;
-     }]);
-     */
+    app.controller('StoreController', ['$http', '$log', function ($http, $log) {
 
-    app.controller('StoreController', function () {
-        this.products = gems;
-    });
+        var self = this;
+        self.products = gems;
+
+        $http.get('products.json').then(function (response) {
+            self.products = response.data;
+        }, function (data) {
+        });
+
+    }]);
 
     app.controller('ReviewController', function () {
         this.review = {};
